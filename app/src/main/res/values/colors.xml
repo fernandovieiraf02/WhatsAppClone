@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="toolbarTitle">#FFF</color>
+    <color name="tabTitle">#FFF</color>
+    <color name="toolbarColor">#075e54</color>
+    <color name="tabRippleColor">#128c7e</color>
+    <color name="chatTitle">#000</color>
+    <color name="toolbarSearch">#ffffff</color>
+</resources>

@@ -9,11 +9,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.whatsappclone.whatsappclone.R;
 import com.whatsappclone.whatsappclone.whatsappclone.adapter.TabsPageAdapter;
-import com.whatsappclone.whatsappclone.whatsappclone.fragment.ChatFragment;
 import com.whatsappclone.whatsappclone.whatsappclone.fragment.ConversasFragment;
 
 public class MainActivity extends AppCompatActivity {

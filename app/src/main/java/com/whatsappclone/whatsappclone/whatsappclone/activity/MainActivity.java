@@ -4,10 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.whatsappclone.whatsappclone.R;
 import com.whatsappclone.whatsappclone.whatsappclone.adapter.TabsPageAdapter;
@@ -48,11 +50,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-       /* if (fragmentManager.isDestroyed()) {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment lastFragment = fragmentManager.getFragments().get(fragmentManager.getFragments().size() - 1);
+        if (fragmentManager.getFragments().size() <= 0) {
+            return;
+        }
+
+        if (lastFragment.getClass().equals(ConversasFragment.class)) {
             super.onBackPressed();
-        } else {
-            fragmentTransaction.remove(new ChatFragment());
-            fragmentTransaction.commit();
-        }*/
+        }
+
+        fragmentTransaction.remove(lastFragment);
+        fragmentTransaction.commit();
     }
 }

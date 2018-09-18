@@ -9,34 +9,36 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.whatsappclone.whatsappclone.R;
-import com.whatsappclone.whatsappclone.whatsappclone.adapter.ConversasRecyclerViewAdapter;
+import com.whatsappclone.whatsappclone.whatsappclone.adapter.ChatRecyclerViewAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ConversasFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private ConversasRecyclerViewAdapter rv_adapter;
-
-    public ConversasFragment() {
+    private ChatRecyclerViewAdapter chatAdapter;
+    public ChatFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_conversas, container, false);
-        recyclerView = view.findViewById(R.id.rv_conversas);
+        View view = inflater.inflate(R.layout.fragment_chat, container, false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(container.getContext());
-        rv_adapter = new ConversasRecyclerViewAdapter();
+        chatAdapter = new ChatRecyclerViewAdapter();
+        recyclerView = (RecyclerView) view.findViewById(R.id.rv_chat);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(container.getContext(), DividerItemDecoration.HORIZONTAL));
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(rv_adapter);
+        recyclerView.setAdapter(chatAdapter);
         return view;
     }
+
 }

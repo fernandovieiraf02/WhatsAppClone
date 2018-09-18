@@ -1,20 +1,18 @@
 package com.whatsappclone.whatsappclone.whatsappclone.activity;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 
 import com.whatsappclone.whatsappclone.R;
 import com.whatsappclone.whatsappclone.whatsappclone.adapter.TabsPageAdapter;
+import com.whatsappclone.whatsappclone.whatsappclone.fragment.ChatFragment;
 import com.whatsappclone.whatsappclone.whatsappclone.fragment.ConversasFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +20,16 @@ public class MainActivity extends AppCompatActivity {
     private TabItem tb_conversas, tb_status, tb_chamadas;
     private TabLayout tab;
     private ViewPager viewPager;
+    public static FragmentManager fragmentManager;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.context = getApplicationContext();
+        fragmentManager = getSupportFragmentManager();
+
         conversasFragment = new ConversasFragment();
         chamadasFragment = new ConversasFragment();
         statusFragment = new ConversasFragment();
@@ -41,9 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(tabsAdapter);
         tab.setupWithViewPager(viewPager);
+    }
 
-        /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.frame, conversasFragment);
-        fragmentTransaction.commit();*/
+    @Override
+    public void onBackPressed() {
+       /* if (fragmentManager.isDestroyed()) {
+            super.onBackPressed();
+        } else {
+            fragmentTransaction.remove(new ChatFragment());
+            fragmentTransaction.commit();
+        }*/
     }
 }

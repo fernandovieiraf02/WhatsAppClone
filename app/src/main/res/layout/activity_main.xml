@@ -1,97 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/coordinatorLayout"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/fl_frame">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/toolbarColor"
-            app:layout_scrollFlags="scroll|enterAlways">
+            android:layout_height="wrap_content">
 
-            <android.support.constraint.ConstraintLayout
+            <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/toolbarColor"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-                <TextView
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="WhatsApp"
+                        android:textColor="@color/toolbarTitle"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:tint="@color/toolbarSearch"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.Toolbar>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/toolbarColor"
+                app:tabIndicatorColor="@color/tabTitle"
+                app:tabMode="fixed"
+                app:tabRippleColor="@color/tabRippleColor"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                app:tabTextColor="@color/tabTitle">
+
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tab_conversas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="WhatsApp"
-                    android:textColor="@color/toolbarTitle"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:text="CONVERSAS" />
 
-                <ImageView
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tab_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="8dp"
-                    android:tint="@color/toolbarSearch"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+                    android:text="STATUS" />
 
-                <ImageView
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tab_chamadas"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </android.support.constraint.ConstraintLayout>
-        </android.support.v7.widget.Toolbar>
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
+                    android:layout_height="wrap_content"
+                    android:text="CHAMADAS" />
+            </android.support.design.widget.TabLayout>
+        </android.support.design.widget.AppBarLayout>
+        <!--<FrameLayout
+            android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/toolbarColor"
-            app:tabIndicatorColor="@color/tabTitle"
-            app:tabMode="fixed"
-            app:tabRippleColor="@color/tabRippleColor"
-            app:tabTextAppearance="@style/TextAppearance.AppCompat.Widget.Button"
-            app:tabTextColor="@color/tabTitle">
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tab_conversas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CONVERSAS" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tab_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="STATUS" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tab_chamadas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CHAMADAS" />
-        </android.support.design.widget.TabLayout>
-    </android.support.design.widget.AppBarLayout>
-    <!--<FrameLayout
-        android:id="@+id/frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-</android.support.design.widget.CoordinatorLayout>
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

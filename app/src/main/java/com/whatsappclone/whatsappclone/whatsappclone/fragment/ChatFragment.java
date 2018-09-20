@@ -1,8 +1,10 @@
 package com.whatsappclone.whatsappclone.whatsappclone.fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,9 +20,6 @@ import com.whatsappclone.whatsappclone.whatsappclone.activity.MainActivity;
 import com.whatsappclone.whatsappclone.whatsappclone.adapter.ChatRecyclerViewAdapter;
 import com.whatsappclone.whatsappclone.whatsappclone.threads.SendMessage;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.ArrayList;
 
 /**
@@ -29,16 +28,13 @@ import java.util.ArrayList;
 public class ChatFragment extends Fragment {
 
     public static ArrayList<String> chatList;
-    private Socket socket;
     private RecyclerView recyclerView;
-    private ChatRecyclerViewAdapter chatAdapter;
     private ImageView arrowBack, sendButton;
     private EditText et_message;
     Thread thread;
     SendMessage sendTask;
-    BufferedReader bufferedReader;
-    PrintWriter writer;
-    boolean started;
+    public static FragmentActivity fragmentActivity;
+    public static ChatRecyclerViewAdapter chatAdapter;
 
     public ChatFragment() {
         // Required empty public constructor
@@ -48,6 +44,7 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
+        fragmentActivity = getActivity();
         chatList = new ArrayList<>();
         sendTask = new SendMessage();
         thread = new Thread(sendTask);

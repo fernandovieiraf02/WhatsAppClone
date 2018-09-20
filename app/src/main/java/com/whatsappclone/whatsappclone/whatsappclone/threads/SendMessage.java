@@ -68,6 +68,12 @@ public class SendMessage implements Runnable {
                                     while (true) {
                                         if (buffer.ready()) {
                                             ChatFragment.chatList.add(buffer.readLine());
+                                            ChatFragment.fragmentActivity.runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    ChatFragment.chatAdapter.notifyDataSetChanged();
+                                                }
+                                            });
                                             break;
                                         }
                                     }

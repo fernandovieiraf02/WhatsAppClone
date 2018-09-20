@@ -1,50 +1,29 @@
 package com.whatsappclone.whatsappclone.whatsappclone.threads;
 
+import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.TextView;
+
+import com.whatsappclone.whatsappclone.whatsappclone.fragment.ChatFragment;
+
+import org.w3c.dom.Text;
+
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 public class SendMessage {
 
-    private static final int SERVERPORT = 3030;
-    private static final String SERVER_IP = "192.168.2.88";
-    private Socket socket;
 
-    public SendMessage() {
-        new Thread(new ClientThread()).start();
-    }
-
-    public void send(String message) {
-        try {
-            PrintWriter out = new PrintWriter(
-                    new BufferedWriter(
-                            new OutputStreamWriter( socket.getOutputStream())),true );
-            out.println(message);
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private class ClientThread implements Runnable{
-
-        @Override
-        public void run() {
-            try {
-                InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
-                socket = new Socket(serverAddr, SERVERPORT);
-            } catch (UnknownHostException e1) {
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
-    }
+    private String message;
 }

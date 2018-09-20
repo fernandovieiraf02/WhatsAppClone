@@ -8,8 +8,25 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.whatsappclone.whatsappclone.R;
+import com.whatsappclone.whatsappclone.whatsappclone.fragment.ChatFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerViewAdapter.CustomViewHolder>{
+
+    private List<String> chatList;
+    public ChatRecyclerViewAdapter(ArrayList<String> chatList) {
+        this.chatList = chatList;
+    }
+
+    public ChatRecyclerViewAdapter() {
+        chatList = new ArrayList<>();
+    }
+
+    public void addChatMessage(String message) {
+        chatList.add(message);
+    }
 
     @NonNull
     @Override
@@ -23,13 +40,13 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
     public void onBindViewHolder(@NonNull ChatRecyclerViewAdapter.CustomViewHolder customViewHolder, int i) {
         customViewHolder.getNameChat().setText("Fulano");
         customViewHolder.getNumberChat().setText("(67)99665-3345");
-        customViewHolder.getTextChat().setText("Olá, tudo bem ?");
+        customViewHolder.getTextChat().setText(chatList.get(i));
         customViewHolder.getTimeChat().setText("09:34");
     }
 
     @Override
     public int getItemCount() {
-        return 17;
+        return chatList.size();
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {

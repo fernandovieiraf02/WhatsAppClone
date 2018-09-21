@@ -1,1 +1,6 @@
 /build
+../server-nodejs/node_modules
+../server-nodejs/node_modules/
+/server-nodejs/node_modules
+/server-nodejs/node_modules/
+/node_modules

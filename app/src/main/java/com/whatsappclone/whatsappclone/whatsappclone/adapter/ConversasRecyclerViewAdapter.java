@@ -54,7 +54,7 @@ public class ConversasRecyclerViewAdapter extends RecyclerView.Adapter<Conversas
                 @Override
                 public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = MainActivity.fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.fl_frame, chatFragment);
+                fragmentTransaction.add(R.id.fl_home, chatFragment);
                 fragmentTransaction.commit();
                 }
             });

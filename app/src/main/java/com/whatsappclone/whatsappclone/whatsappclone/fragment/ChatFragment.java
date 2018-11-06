@@ -15,7 +15,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.whatsappclone.whatsappclone.R;
+import com.whatsappclone.whatsappclone.whatsappclone.App;
 import com.whatsappclone.whatsappclone.whatsappclone.activity.MainActivity;
 import com.whatsappclone.whatsappclone.whatsappclone.adapter.ChatRecyclerViewAdapter;
 import com.whatsappclone.whatsappclone.whatsappclone.threads.SendMessage;
@@ -44,6 +47,15 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
+
+        Tracker t = ((App) getActivity().getApplication()).getDefaultTracker();
+        // Build and send an Event.
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory("TESTE")
+                .setAction("OPEN CHAT")
+                .setLabel("TEST")
+                .build());
+
         fragmentActivity = getActivity();
         chatList = new ArrayList<>();
         sendTask = new SendMessage();

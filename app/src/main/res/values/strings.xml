@@ -3,4 +3,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Toolbar search menu -->
+    <string name="menu_search">Pesquisar</string>
+
+    <!-- Toolbar options item -->
+    <string name="item_settings">Configurações</string>
+    <string name="item_exit">Sair</string>
+
+    <!-- Login strings -->
+    <string name="email_example">example@email.com</string>
+    <string name="password">password</string>
+    <string name="btn_login">Entrar</string>
 </resources>

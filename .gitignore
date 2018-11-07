@@ -1,3 +1,4 @@
 /app/build
 /server-nodejs/node_modules
-/*/global_tracker.xml
+/app/google-services.json
+/xml/global_tracker.xml
